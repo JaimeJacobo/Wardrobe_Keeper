@@ -1,15 +1,42 @@
 
+//npm imports
+const mongoose   = require('mongoose')
+const chalk      = require('chalk')
+const express    = require('express')
+const hbs        = require('hbs')
+const path       = require('path')
+const bodyParser = require('body-parser')
 
-const mongoose = require('mongoose');
-const chalk    = require('chalk');
-const express  = require('express');
-const hbs      = require('hbs')
-const path     = require('path')
+//Route imports
+const indexRouter = require('./routes/index')
+const looksRouter = require('./routes/looks-router')
+
+//Comando para conectarse a la base de datos de Mongo utilizando Mongoose
+mongoose.connect('mongodb://127.0.0.1:27017/wardrobe-keeper-api', {
+  useNewUrlParser: true, 
+  useCreateIndex: true, 
+  useFindAndModify: false
+})
+.then((data)=>{
+  console.log(chalk.green('Connected to Mongo! Database name: ' + data.connections[0].name))
+})
+.catch((e)=>{
+  console.log(chalk.red.inverse('Error connecting to mongo', e))
+})
 
 const app = express()
-const port = process.env.PORT || 2222
+const port = process.env.PORT || 3000
+
+//Middleware setup
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.json())
+
+//Este comando indica que se utilice el route ubicado en routes --> index.js
+app.use(indexRouter)
+//Este comando indica que se utilice el route ubicado en routes --> looks-router
+app.use(looksRouter)
 
 //Este comando nos indica que utilizaremos hbs como nuestro motor de vistas
 app.set('view engine', 'hbs');
@@ -20,8 +47,10 @@ app.set('views', path.join(__dirname, './templates/views'));
 //Este comando le indica a la app dónde está la carpeta de los partials
 hbs.registerPartials(path.join(__dirname, './templates/partials'))
 
-app.get('/', (req, res)=>{
-  res.render("index")
-})
 
-app.listen(port, ()=>{console.log(chalk.green.inverse("Server is up and running"))})
+
+
+
+app.listen(port, ()=>{
+  console.log(chalk.green.inverse("Server is up and running"))
+})
