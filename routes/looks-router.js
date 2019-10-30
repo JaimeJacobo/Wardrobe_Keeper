@@ -11,6 +11,22 @@ router.get('/create-look', (req, res)=>{
   res.render('create-look')
 })
 
+router.get('/my-looks', (req, res)=>{
+
+Look.find()
+.then((info)=>{
+  let arrayOfLooks = [];
+  info.forEach((element)=>{
+    arrayOfLooks.push(element)
+  })
+  res.render('my-looks', {looks: arrayOfLooks})
+})
+.catch((e)=>{
+  console.log(e)
+})
+
+})
+
 //Ruta POST para crear un nuevo look
 router.post('/create-look', (req, res)=>{
   const newLook = new Look({

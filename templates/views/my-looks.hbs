@@ -1,0 +1,18 @@
+{{>header}}
+
+<p>My looks shown here</p>
+
+{{#each looks}}
+<div>
+  {{look_name}}
+  {{hat_complement}}
+  {{shirt_complement}}
+  {{hoodie_complement}}
+  {{pant_complement}}
+  {{socks_complement}}
+  {{shoes_complement}}
+  <form action="delete-look/{{_id}}" method="delete">
+    <button>Delete Look</button>
+  </form>
+</div>
+{{/each}}
