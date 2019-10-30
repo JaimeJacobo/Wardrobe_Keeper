@@ -1,0 +1,40 @@
+
+.not-found-section{
+
+  text-align: center;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+
+  & h1{
+    font-size: 70px;
+
+    @media (max-width: 650px) {
+      font-size: 10vw;
+    }
+  }
+
+  & p{
+    font-size: 27px;
+    padding-left: 5em;
+    padding-right: 5em;
+
+    @media (max-width: 768px) {
+      font-size: 5vw;
+    }
+
+    @media (max-width: 1201px) {
+      padding-left: inherit;
+      padding-right: inherit;
+    }
+  }
+
+  & img{
+    width: 100%;
+    max-width: 70vh;
+    padding-top: 3em;
+
+    @media (max-width: 320px){
+      padding-top: 0;
+    }
+  }
+}

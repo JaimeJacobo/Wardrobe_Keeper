@@ -1,0 +1,47 @@
+.not-found-section {
+  text-align: center;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+.not-found-section h1 {
+  font-size: 70px;
+}
+
+@media (max-width: 650px) {
+  .not-found-section h1 {
+    font-size: 10vw;
+  }
+}
+
+.not-found-section p {
+  font-size: 27px;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+@media (max-width: 768px) {
+  .not-found-section p {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 1201px) {
+  .not-found-section p {
+    padding-left: inherit;
+    padding-right: inherit;
+  }
+}
+
+.not-found-section img {
+  width: 100%;
+  max-width: 70vh;
+  padding-top: 3em;
+}
+
+@media (max-width: 320px) {
+  .not-found-section img {
+    padding-top: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 //Route imports
 const indexRouter = require('./routes/index')
 const looksRouter = require('./routes/looks-router')
+const notFoundRouter = require('./routes/not-found')
 
 //Comando para conectarse a la base de datos de Mongo utilizando Mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/wardrobe-keeper-api', {
@@ -33,22 +34,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.json())
 
+//Este comando nos indica que utilizaremos hbs como nuestro motor de vistas
+app.set('view engine', 'hbs');
+//Este comando le indica a la app que utilice la carpeta de public en estático
+app.use(express.static(path.join(__dirname, './public')));
+//Este comando le indica a la app dónde está la carpeta de views
+app.set('views', path.join(__dirname, './templates/views'));
+
+
 //Este comando indica que se utilice el route ubicado en routes --> index.js
 app.use(indexRouter)
 //Este comando indica que se utilice el route ubicado en routes --> looks-router
 app.use(looksRouter)
-
-//Este comando nos indica que utilizaremos hbs como nuestro motor de vistas
-app.set('view engine', 'hbs');
-//Este comando le indica a la app que utilice la carpeta de public en estático
-app.use(express.static(path.join(__dirname, './templates/public')));
-//Este comando le indica a la app dónde está la carpeta de views
-app.set('views', path.join(__dirname, './templates/views'));
-//Este comando le indica a la app dónde está la carpeta de los partials
-hbs.registerPartials(path.join(__dirname, './templates/partials'))
-
-
-
+//Este comando indica que se utilice el route ubicado en router --> not-found
+app.use(notFoundRouter)
 
 
 app.listen(port, ()=>{
