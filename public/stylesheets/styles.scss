@@ -1,4 +1,12 @@
 
+body {
+  background-color: #F0F6FF;
+}
+
+.navbar {
+  background-color: #B5D3FF;
+}
+
 .not-found-section{
 
   text-align: center;
@@ -6,7 +14,7 @@
   padding-bottom: 0.8em;
 
   & h1{
-    font-size: 70px;
+    font-size: 60px;
 
     @media (max-width: 650px) {
       font-size: 10vw;
@@ -14,11 +22,11 @@
   }
 
   & p{
-    font-size: 27px;
+    font-size: 22px;
     padding-left: 5em;
     padding-right: 5em;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       font-size: 5vw;
     }
 

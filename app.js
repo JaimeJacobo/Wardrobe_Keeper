@@ -11,6 +11,7 @@ const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index')
 const looksRouter = require('./routes/looks-router')
 const notFoundRouter = require('./routes/not-found')
+const topComplementRouter = require('./routes/topComplement-router')
 
 //Comando para conectarse a la base de datos de Mongo utilizando Mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/wardrobe-keeper-api', {
@@ -48,6 +49,7 @@ app.use(indexRouter)
 app.use(looksRouter)
 //Este comando indica que se utilice el route ubicado en router --> not-found
 app.use(notFoundRouter)
+app.use(topComplementRouter)
 
 
 app.listen(port, ()=>{
