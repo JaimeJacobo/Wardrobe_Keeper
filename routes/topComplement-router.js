@@ -8,7 +8,7 @@ const TopComplement = require('../models/topComplement')
 
 //Configuración de multer para subir fotos
 const upload = multer({
-  dest: 'images',
+  dest: 'public/images',
   limits: {
     fileSize: 1000000
   },
@@ -19,6 +19,18 @@ const upload = multer({
     cb(undefined, true)
     // cb(undefined, false)
   }
+})
+
+router.get('/topComplement/:id', (req, res)=>{
+  TopComplement.findById(req.params.id)
+  .then((answer)=>{
+    let topComplementArray = []
+    topComplementArray.push(answer)
+    res.render('top-complement', {element: topComplementArray})
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
 })
 
 //Ruta POST para añadir un nuevo complemento de cabeza
@@ -36,15 +48,22 @@ router.post('/new-topComplement', (req, res)=>{
   })
 })
 
-//Ruta POST para 
-router.post('/new-topComplement/upload-image', upload.single('upload'), (req, res)=>{
-  console.log(req.file)
-  res.redirect('/creation-center')
-  
+//Ruta POST para subir a la DB un look de cabeza
+router.post('/new-topComplement/upload', upload.single('upload'), (req, res)=>{
+
+  const newTopComplement = new TopComplement({
+    top_complement_name: req.body.topComplementInt,
+    image: '/images/' + req.file.filename
+  })
+
+  newTopComplement.save()
+  .then(()=>{
+    res.redirect('/creation-center')
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
 })
-
-
-
 
 
 

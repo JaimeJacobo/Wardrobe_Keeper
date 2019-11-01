@@ -49,8 +49,8 @@ app.use(indexRouter)
 //Este comando indica que se utilice el route ubicado en routes --> looks-router
 app.use(looksRouter)
 //Este comando indica que se utilice el route ubicado en router --> not-found
-app.use(notFoundRouter)
 app.use(topComplementRouter)
+app.use(notFoundRouter)
 
 
 app.listen(port, ()=>{

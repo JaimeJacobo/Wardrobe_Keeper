@@ -5,16 +5,18 @@
 
   <img id="placeholderImage" src="http://via.placeholder.com/300" alt="Image to upload"/>
 
-  <form action="/new-topComplement/upload-image" method="post" enctype="multipart/form-data">
+  <form action="/new-topComplement/upload" method="post" enctype="multipart/form-data">
     <label for="topComplementName">Top complement name:</label>
     <input id="topComplementName" type="text" name="topComplementInt"/>
     <br />
 
-    <label for="topComplementImage">Shoes complement:</label>
+    <label for="topComplementImage">Image of the complement:</label>
     <input id="topComplementImage" type="file" name="upload" onInput="change_image()"/>
     <br />
 
     <button>Save Your Quote</button>
 
-  </form>  
+  </form>
+    {{!-- <img id="placeholderImage" src="/images/22acb10e5a09c3acdae6fa25c2fea2a5" alt="Image to upload"/> --}}
+      <img id="pruebaImagen" src="http://via.placeholder.com/300" alt="Image to upload"/>
 </div>
