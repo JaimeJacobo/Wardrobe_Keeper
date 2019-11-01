@@ -70,4 +70,13 @@ router.post('/create-look', (req, res)=>{
   })
 })
 
+
+//NUEVOS LOOKS
+
+//Ruta GET para ver la zona de cración de looks
+
+router.get('/creation-center', (req, res)=>{
+  res.render('creation-center')
+})
+
 module.exports = router

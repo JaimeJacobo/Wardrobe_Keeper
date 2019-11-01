@@ -6,11 +6,12 @@ const express    = require('express')
 const hbs        = require('hbs')
 const path       = require('path')
 const bodyParser = require('body-parser')
+const multer     = require('multer')
 
 //Route imports
-const indexRouter = require('./routes/index')
-const looksRouter = require('./routes/looks-router')
-const notFoundRouter = require('./routes/not-found')
+const indexRouter         = require('./routes/index')
+const looksRouter         = require('./routes/looks-router')
+const notFoundRouter      = require('./routes/not-found')
 const topComplementRouter = require('./routes/topComplement-router')
 
 //Comando para conectarse a la base de datos de Mongo utilizando Mongoose

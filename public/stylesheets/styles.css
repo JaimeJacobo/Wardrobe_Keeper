@@ -52,4 +52,9 @@ body {
     padding-top: 0;
   }
 }
+
+.creation-center-container img {
+  width: 300px;
+  height: 300px;
+}
 /*# sourceMappingURL=styles.css.map */
