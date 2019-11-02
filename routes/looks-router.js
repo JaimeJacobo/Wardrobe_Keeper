@@ -21,7 +21,6 @@ router.get('/my-looks', (req, res)=>{
   .catch((e)=>{
     res.send(e)
   })
-
 })
 
 //Ruta GET para ver un look específico
