@@ -1,9 +1,10 @@
 
 
 <div class="creation-center-container">
+
   <h1>This is the creation center page</h1>
 
-  <img id="placeholderImage" src="http://via.placeholder.com/300" alt="Image to upload"/>
+  <img id="topComplementPlaceholderImage" src="http://via.placeholder.com/300" alt="Image to upload"/>
 
   <form action="/new-topComplement/upload" method="post" enctype="multipart/form-data">
     <label for="topComplementName">Top complement name:</label>
@@ -11,12 +12,10 @@
     <br />
 
     <label for="topComplementImage">Image of the complement:</label>
-    <input id="topComplementImage" type="file" name="upload" onInput="change_image()"/>
+    <input id="topComplementImage" type="file" name="upload" onInput="change_image('topComplementImage', 'topComplementPlaceholderImage')"/>
     <br />
 
     <button>Save Your Quote</button>
 
   </form>
-    {{!-- <img id="placeholderImage" src="/images/22acb10e5a09c3acdae6fa25c2fea2a5" alt="Image to upload"/> --}}
-      <img id="pruebaImagen" src="http://via.placeholder.com/300" alt="Image to upload"/>
 </div>

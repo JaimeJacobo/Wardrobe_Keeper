@@ -82,7 +82,7 @@ router.post('/new-topComplement/upload', upload.single('upload'), (req, res)=>{
 
   newTopComplement.save()
   .then(()=>{
-    res.redirect('/creation-center')
+    res.redirect('/creation-center/new-top-complement')
   })
   .catch((e)=>{
     console.log(e)

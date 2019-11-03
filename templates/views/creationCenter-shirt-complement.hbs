@@ -1,0 +1,21 @@
+
+
+<div class="creation-center-container">
+  
+  <h1>Create your shirt complement</h1>
+
+  <img id="ShirtComplementPlaceholderImage" src="http://via.placeholder.com/300" alt="Image to upload"/>
+
+  <form action="/new-ShirtComplement/upload" method="post" enctype="multipart/form-data">
+    <label for="shirtComplementName">Shirt complement name:</label>
+    <input id="shirtComplementName" type="text" name="shirtComplementInt"/>
+    <br />
+
+    <label for="shirtComplementImage">Image of the complement:</label>
+    <input id="shirtComplementImage" type="file" name="upload" onInput="change_image('shirtComplementImage', 'ShirtComplementPlaceholderImage')"/>
+    <br />
+
+    <button>Save Your Complement</button>
+
+  </form>
+</div>

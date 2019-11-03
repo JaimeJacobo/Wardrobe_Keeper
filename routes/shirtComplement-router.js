@@ -4,7 +4,7 @@ const express = require('express')
 const router  = express.Router()
 const multer  = require('multer')
 
-const ShirtComplement = require('../models/ShirtComplement')
+const ShirtComplement = require('../models/shirtComplement')
 
 //Configuración de multer para subir fotos
 const upload = multer({
@@ -60,7 +60,7 @@ router.get('/one-shirt-complement/:id', (req, res)=>{
 //Ruta para añadir un nuevo complemento superior
 router.post('/new-ShirtComplement', (req, res)=>{
   const newShirtComplement = new ShirtComplement({
-    shirt_complement_name: req.body.shirt_complement_name,
+    shirt_complement_name: req.body.shirtComplementInt,
     image: req.body.image
   })
   newShirtComplement.save()
@@ -72,17 +72,17 @@ router.post('/new-ShirtComplement', (req, res)=>{
   })
 })
 
-//Ruta para subir a la DB un look de superior
+//Ruta para subir a la DB un look de shirt
 router.post('/new-ShirtComplement/upload', upload.single('upload'), (req, res)=>{
 
   const newShirtComplement = new ShirtComplement({
-    shirt_complement_name: req.body.ShirtComplementInt,
+    shirt_complement_name: req.body.shirtComplementInt,
     image: '/images/' + req.file.filename
   })
 
   newShirtComplement.save()
   .then(()=>{
-    res.redirect('/creation-center')
+    res.redirect('/creation-center/new-shirt-complement')
   })
   .catch((e)=>{
     console.log(e)

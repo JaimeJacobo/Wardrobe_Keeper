@@ -9,11 +9,12 @@ const bodyParser = require('body-parser')
 const multer     = require('multer')
 
 //Route imports
-const indexRouter         = require('./routes/index')
-const looksRouter         = require('./routes/looks-router')
-const notFoundRouter      = require('./routes/not-found')
-const topComplementRouter = require('./routes/topComplement-router')
+const indexRouter           = require('./routes/index')
+const looksRouter           = require('./routes/looks-router')
+const notFoundRouter        = require('./routes/not-found')
+const topComplementRouter   = require('./routes/topComplement-router')
 const shirtComplementRouter = require('./routes/shirtComplement-router')
+const creationCenterRouter  = require('./routes/creationCenter-router')
 
 //Comando para conectarse a la base de datos de Mongo utilizando Mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/wardrobe-keeper-api', {
@@ -53,6 +54,8 @@ app.use(looksRouter)
 app.use(topComplementRouter)
 //Este comando indica que se utilice el route ubicado en router --> shirtComplement-router
 app.use(shirtComplementRouter)
+//Este comando indica que se utilice el route ubicado en router --> creationCenter-router
+app.use(creationCenterRouter)
 //Este comando indica que se utilice el route ubicado en router --> not-found
 app.use(notFoundRouter)
 
