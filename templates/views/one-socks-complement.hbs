@@ -1,0 +1,16 @@
+
+
+<section class="one-complement-container">
+  {{#each element}}
+  <div>
+    <h1>{{socks_complement_name}}</h1>
+    <img src="{{image}}" alt="Socks Complement Image" />
+    <form action="{{_id}}" method="post">
+      <button>Delete Complement</button>
+    </form>
+    <form action="/socks-complements" method="get">
+      <button>Go Back</button>
+    </form>
+  </div>
+  {{/each}}  
+</section>

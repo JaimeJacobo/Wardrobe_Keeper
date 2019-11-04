@@ -1,6 +1,12 @@
 
 body {
   background-color: #F0F6FF;
+  font-family: 'Roboto', sans-serif;
+}
+
+.imageUploadedSuccess {
+  background-color: #99ff66 !important;
+  color: #595959 !important;
 }
 
 .navbar {
@@ -49,17 +55,109 @@ body {
 
 .creation-center-container{
 
-  & img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #failedImageMsg{
+    background-color: #ff5050 !important;
+    color: white !important;
+    width: 20%;
+    padding: 0.5rem;
+    text-align: center;
+    display: none;
+  }
+
+  & #topComplementImage, #shirtComplementImage, #hoodieComplementImage, #pantsComplementImage, #socksComplementImage {
+    height: 0px;
+    padding: 0;
+
+    &__label {
+      cursor: pointer;
+      width: 230px;
+      text-align: center;
+    }
+  }
+
+  & #topComplementName, #shirtComplementName, #hoodieComplementName, #pantsComplementName, #socksComplementName {
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    transition: all 200ms ease-in;
+    cursor: pointer;
+    
+    &--primary {
+      width: 100%;
+      background: #7f8ff4;
+      color: #fff;
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, .1);
+      border-radius: 2px;
+      padding: 12px 36px;
+      margin-bottom: 3rem;
+      
+      &:hover {
+        background: darken(#7f8ff4, 4%);
+      }
+    }
+  }
+
+  .form {	
+    &__field {
+      width: 100%;
+      background: #fff;
+      color: #a3a3a3;
+      box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+      border: 0;
+      outline: 0;
+      padding: 22px 18px;
+    }
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & img {
     width: 300px;
     height: 300px;
+    margin-bottom: 1rem;
+  }
+
+  & h1 {
+    margin-top: 0.5rem;
+    text-align: center;
+
+    @media (min-width: 450px){
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
   }
 }
 
 .complements-section{
 
+  & .content{
+    text-align: center;
+  }
+
   & img{
     width: 300px;
     height: 300px;
+
+    @media (max-width: 350px){
+      width: 250px;
+      height: 250px;
+    }
   }
 }
 
@@ -70,3 +168,9 @@ body {
     height: 300px;
   }
 }
+
+
+
+
+
+

@@ -3,7 +3,7 @@
 const express = require('express')
 const router = express.Router()
 
-const Look = require('../models/look')
+const Look = require('../../models/look')
 
 
 //Ruta GET para la página de 'crear conjunto'

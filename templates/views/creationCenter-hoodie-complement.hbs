@@ -1,0 +1,19 @@
+
+
+<div class="creation-center-container">
+  
+  <h1>New hoodie</h1>
+
+  <img id="hoodieComplementPlaceholderImage" src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png" alt="Image to upload"/>
+  <p id="failedImageMsg">Please upload a .jpg or .png file</p>
+
+  <form action="/new-HoodieComplement/upload" method="post" enctype="multipart/form-data">
+
+    <label id="hoodieComplementImage__label" class="form__field" for="hoodieComplementImage">Click to upload your image</label>
+    <input type="file" class="custom-file-input form__field" id="hoodieComplementImage" name="upload" onInput="change_image('hoodieComplementImage', 'hoodieComplementPlaceholderImage', '#hoodieComplementImage__label')" required>
+
+    <input id="hoodieComplementName" name="hoodieComplementInt" type="text" class="form__field" placeholder="Your complement name" required/>
+		<button class="btn btn--primary">SEND</button>
+
+  </form>
+</div>

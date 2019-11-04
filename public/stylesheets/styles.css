@@ -1,5 +1,11 @@
 body {
   background-color: #F0F6FF;
+  font-family: 'Roboto', sans-serif;
+}
+
+.imageUploadedSuccess {
+  background-color: #99ff66 !important;
+  color: #595959 !important;
 }
 
 .navbar {
@@ -53,14 +59,127 @@ body {
   }
 }
 
+.creation-center-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creation-center-container #failedImageMsg {
+  background-color: #ff5050 !important;
+  color: white !important;
+  width: 20%;
+  padding: 0.5rem;
+  text-align: center;
+  display: none;
+}
+
+.creation-center-container #topComplementImage, .creation-center-container #shirtComplementImage, .creation-center-container #hoodieComplementImage, .creation-center-container #pantsComplementImage, .creation-center-container #socksComplementImage {
+  height: 0px;
+  padding: 0;
+}
+
+.creation-center-container #topComplementImage__label, .creation-center-container #shirtComplementImage__label, .creation-center-container #hoodieComplementImage__label, .creation-center-container #pantsComplementImage__label, .creation-center-container #socksComplementImage__label {
+  cursor: pointer;
+  width: 230px;
+  text-align: center;
+}
+
+.creation-center-container #topComplementName, .creation-center-container #shirtComplementName, .creation-center-container #hoodieComplementName, .creation-center-container #pantsComplementName, .creation-center-container #socksComplementName {
+  margin-bottom: 1rem;
+}
+
+.creation-center-container .btn {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+
+.creation-center-container .btn--primary {
+  width: 100%;
+  background: #7f8ff4;
+  color: #fff;
+  -webkit-box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 12px 36px;
+  margin-bottom: 3rem;
+}
+
+.creation-center-container .btn--primary:hover {
+  background: #6c7ff2;
+}
+
+.creation-center-container .form__field {
+  width: 100%;
+  background: #fff;
+  color: #a3a3a3;
+  -webkit-box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border: 0;
+  outline: 0;
+  padding: 22px 18px;
+}
+
+.creation-center-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .creation-center-container img {
   width: 300px;
   height: 300px;
+  margin-bottom: 1rem;
+}
+
+.creation-center-container h1 {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 450px) {
+  .creation-center-container h1 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.complements-section .content {
+  text-align: center;
 }
 
 .complements-section img {
   width: 300px;
   height: 300px;
+}
+
+@media (max-width: 350px) {
+  .complements-section img {
+    width: 250px;
+    height: 250px;
+  }
 }
 
 .one-complement-container img {

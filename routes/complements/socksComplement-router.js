@@ -4,7 +4,7 @@ const express = require('express')
 const router  = express.Router()
 const multer  = require('multer')
 
-const TopComplement = require('../models/topComplement')
+const SocksComplement = require('../../models/socksComplement')
 
 //Configuración de multer para subir fotos
 const upload = multer({
@@ -22,10 +22,10 @@ const upload = multer({
 })
 
 //Ruta para ver todos los complementos superiores
-router.get('/top-complements', (req, res)=>{
-  TopComplement.find()
+router.get('/socks-complements', (req, res)=>{
+  SocksComplement.find()
   .then((info)=>{
-    res.render('my-top-complements', {element: info})
+    res.render('my-socks-complements', {element: info})
   })
   .catch((e)=>{
     res.send(e)
@@ -33,11 +33,11 @@ router.get('/top-complements', (req, res)=>{
 })
 
 //Ruta para borrar un complemento superior específico
-router.post('/one-top-complement/:id', (req, res)=>{
-  TopComplement.findByIdAndRemove(req.params.id)
+router.post('/one-socks-complement/:id', (req, res)=>{
+  SocksComplement.findByIdAndRemove(req.params.id)
   .then((answer)=>{
     console.log(answer)
-    res.redirect('/top-complements')
+    res.redirect('/socks-complements')
   })
   .catch((e)=>{
     console.log(e)
@@ -45,12 +45,12 @@ router.post('/one-top-complement/:id', (req, res)=>{
 })
 
 //Ruta para conseguir un complemento superior en específico
-router.get('/one-top-complement/:id', (req, res)=>{
-  TopComplement.findById(req.params.id)
+router.get('/one-socks-complement/:id', (req, res)=>{
+  SocksComplement.findById(req.params.id)
   .then((answer)=>{
-    let topComplementArray = []
-    topComplementArray.push(answer)
-    res.render('one-top-complement', {element: topComplementArray})
+    let SocksComplementArray = []
+    SocksComplementArray.push(answer)
+    res.render('one-socks-complement', {element: SocksComplementArray})
   })
   .catch((e)=>{
     console.log(e)
@@ -58,12 +58,12 @@ router.get('/one-top-complement/:id', (req, res)=>{
 })
 
 //Ruta para añadir un nuevo complemento superior
-router.post('/new-topComplement', (req, res)=>{
-  const newTopComplement = new TopComplement({
-    top_complement_name: req.body.top_complement_name,
+router.post('/new-SocksComplement', (req, res)=>{
+  const newSocksComplement = new SocksComplement({
+    socks_complement_name: req.body.socksComplementInt,
     image: req.body.image
   })
-  newTopComplement.save()
+  newSocksComplement.save()
   .then((answer)=>{
     res.send(answer)
   })
@@ -72,17 +72,17 @@ router.post('/new-topComplement', (req, res)=>{
   })
 })
 
-//Ruta para subir a la DB un look de superior
-router.post('/new-topComplement/upload', upload.single('upload'), (req, res)=>{
+//Ruta para subir a la DB un look de socks
+router.post('/new-SocksComplement/upload', upload.single('upload'), (req, res)=>{
 
-  const newTopComplement = new TopComplement({
-    top_complement_name: req.body.topComplementInt,
+  const newSocksComplement = new SocksComplement({
+    socks_complement_name: req.body.socksComplementInt,
     image: '/images/' + req.file.filename
   })
 
-  newTopComplement.save()
+  newSocksComplement.save()
   .then(()=>{
-    res.redirect('/creation-center/new-top-complement')
+    res.redirect('/socks-complements')
   })
   .catch((e)=>{
     console.log(e)

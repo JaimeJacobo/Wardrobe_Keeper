@@ -1,7 +1,14 @@
 
 
-let change_image = (image, placeholderImage)=>{
+let change_image = (image, placeholderImage, label)=>{
   
-  let file = document.getElementById(image).files[0]
-  document.getElementById(placeholderImage).src = window.URL.createObjectURL(file)
+  let file = document.getElementById(image).files[0];
+  if(file.name.endsWith('.jpg') || file.name.endsWith('.jpeg') || file.name.endsWith('.png')){
+    document.getElementById(placeholderImage).src = window.URL.createObjectURL(file);
+    $('label').html('Image uploaded :)');
+    $('label').addClass('imageUploadedSuccess');    
+    $('#failedImageMsg').css('display', 'none')   
+  } else {
+    $('#failedImageMsg').css('display', 'block')   
+  }
 }

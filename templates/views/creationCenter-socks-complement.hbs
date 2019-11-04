@@ -1,0 +1,19 @@
+
+
+<div class="creation-center-container">
+  
+  <h1>New socks</h1>
+
+  <img id="socksComplementPlaceholderImage" src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png" alt="Image to upload"/>
+  <p id="failedImageMsg">Please upload a .jpg or .png file</p>
+
+  <form action="/new-SocksComplement/upload" method="post" enctype="multipart/form-data">
+
+    <label id="socksComplementImage__label" class="form__field" for="socksComplementImage">Click to upload your image</label>
+    <input type="file" class="custom-file-input form__field" id="socksComplementImage" name="upload" onInput="change_image('socksComplementImage', 'socksComplementPlaceholderImage', '#socksComplementImage__label')" required>
+
+    <input id="socksComplementName" name="socksComplementInt" type="text" class="form__field" placeholder="Your complement name" required/>
+		<button class="btn btn--primary">SEND</button>
+
+  </form>
+</div>

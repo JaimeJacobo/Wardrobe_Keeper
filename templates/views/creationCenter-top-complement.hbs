@@ -2,20 +2,19 @@
 
 <div class="creation-center-container">
 
-  <h1>This is the creation center page</h1>
+  <h1>New Top Complement</h1>
 
-  <img id="topComplementPlaceholderImage" src="http://via.placeholder.com/300" alt="Image to upload"/>
+  <img id="topComplementPlaceholderImage" src="http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder-350x350.png" alt="Image to upload"/>
+  <p id="failedImageMsg">Please upload a .jpg or .png file</p>
 
   <form action="/new-topComplement/upload" method="post" enctype="multipart/form-data">
-    <label for="topComplementName">Top complement name:</label>
-    <input id="topComplementName" type="text" name="topComplementInt"/>
-    <br />
 
-    <label for="topComplementImage">Image of the complement:</label>
-    <input id="topComplementImage" type="file" name="upload" onInput="change_image('topComplementImage', 'topComplementPlaceholderImage')"/>
-    <br />
+    <label id="topComplementImage__label" class="form__field" for="topComplementImage">Click to upload your image</label>
+    <input type="file" class="custom-file-input form__field" id="topComplementImage" name="upload" onInput="change_image('topComplementImage', 'topComplementPlaceholderImage', '#topComplementImage__label')" required>
 
-    <button>Save Your Quote</button>
+    <input id="topComplementName" name="topComplementInt" type="text" class="form__field" placeholder="Your complement name" required/>
+		<button class="btn btn--primary">SEND</button>
 
   </form>
+
 </div>
