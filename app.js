@@ -16,7 +16,9 @@ const shirtComplementRouter = require('./routes/complements/shirtComplement-rout
 const hoodieComplementRouter = require('./routes/complements/hoodieComplement-router')
 const pantsComplementRouter = require('./routes/complements/pantsComplement-router')
 const socksComplementRouter = require('./routes/complements/socksComplement-router')
+const shoesComplementRouter = require('./routes/complements/shoesComplement-router')
 const creationCenterRouter  = require('./routes/creationCenter-router')
+
 
 //Comando para conectarse a la base de datos de Mongo utilizando Mongoose
 mongoose.connect('mongodb://127.0.0.1:27017/wardrobe-keeper-api', {
@@ -63,6 +65,8 @@ app.use(hoodieComplementRouter)
 app.use(pantsComplementRouter)
 //Este comando indica que se utilice el route ubicado en router --> socksComplement-router
 app.use(socksComplementRouter)
+//Este comando indica que se utilice el route ubicado en router --> shoesComplement-router
+app.use(shoesComplementRouter)
 //Este comando indica que se utilice el route ubicado en router --> creationCenter-router
 app.use(creationCenterRouter)
 //Este comando indica que se utilice el route ubicado en router --> not-found

@@ -9,6 +9,11 @@ body {
   color: #595959 !important;
 }
 
+.shoes-size{
+  width: 350px !important;
+  height: 200px !important;
+}
+
 .navbar {
   background-color: #B5D3FF;
 }
@@ -68,7 +73,7 @@ body {
     display: none;
   }
 
-  & #topComplementImage, #shirtComplementImage, #hoodieComplementImage, #pantsComplementImage, #socksComplementImage {
+  & #topComplementImage, #shirtComplementImage, #hoodieComplementImage, #pantsComplementImage, #socksComplementImage, #shoesComplementImage {
     height: 0px;
     padding: 0;
 
@@ -79,7 +84,7 @@ body {
     }
   }
 
-  & #topComplementName, #shirtComplementName, #hoodieComplementName, #pantsComplementName, #socksComplementName {
+  & #topComplementName, #shirtComplementName, #hoodieComplementName, #pantsComplementName, #socksComplementName, #shoesComplementName {
     margin-bottom: 1rem;
   }
 

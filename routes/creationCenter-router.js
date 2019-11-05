@@ -33,11 +33,10 @@ router.get('/creation-center/new-socks-complement', (req, res)=>{
   res.render('creationCenter-socks-complement')
 })
 
-
-
-
-
-
+//Ruta GET para ver la zona de cración de complemento shoes
+router.get('/creation-center/new-shoes-complement', (req, res)=>{
+  res.render('creationCenter-shoes-complement')
+})
 
 
 module.exports = router

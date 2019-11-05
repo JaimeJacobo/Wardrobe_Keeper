@@ -8,6 +8,11 @@ body {
   color: #595959 !important;
 }
 
+.shoes-size {
+  width: 350px !important;
+  height: 200px !important;
+}
+
 .navbar {
   background-color: #B5D3FF;
 }
@@ -81,18 +86,18 @@ body {
   display: none;
 }
 
-.creation-center-container #topComplementImage, .creation-center-container #shirtComplementImage, .creation-center-container #hoodieComplementImage, .creation-center-container #pantsComplementImage, .creation-center-container #socksComplementImage {
+.creation-center-container #topComplementImage, .creation-center-container #shirtComplementImage, .creation-center-container #hoodieComplementImage, .creation-center-container #pantsComplementImage, .creation-center-container #socksComplementImage, .creation-center-container #shoesComplementImage {
   height: 0px;
   padding: 0;
 }
 
-.creation-center-container #topComplementImage__label, .creation-center-container #shirtComplementImage__label, .creation-center-container #hoodieComplementImage__label, .creation-center-container #pantsComplementImage__label, .creation-center-container #socksComplementImage__label {
+.creation-center-container #topComplementImage__label, .creation-center-container #shirtComplementImage__label, .creation-center-container #hoodieComplementImage__label, .creation-center-container #pantsComplementImage__label, .creation-center-container #socksComplementImage__label, .creation-center-container #shoesComplementImage__label {
   cursor: pointer;
   width: 230px;
   text-align: center;
 }
 
-.creation-center-container #topComplementName, .creation-center-container #shirtComplementName, .creation-center-container #hoodieComplementName, .creation-center-container #pantsComplementName, .creation-center-container #socksComplementName {
+.creation-center-container #topComplementName, .creation-center-container #shirtComplementName, .creation-center-container #hoodieComplementName, .creation-center-container #pantsComplementName, .creation-center-container #socksComplementName, .creation-center-container #shoesComplementName {
   margin-bottom: 1rem;
 }
 
