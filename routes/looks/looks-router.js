@@ -1,75 +1,97 @@
 
 
 const express = require('express')
-const router = express.Router()
+const router  = express.Router()
+
+const TopComplement = require('../../models/topComplement')
+const ShirtComplement = require('../../models/shirtComplement')
+const HoodieComplement = require('../../models/hoodieComplement')
+const PantsComplement = require('../../models/pantsComplement')
+const SocksComplement = require('../../models/socksComplement')
+const ShoesComplement = require('../../models/shoesComplement')
 
 const Look = require('../../models/look')
 
+router.get('/creation-center/new-look', (req, res)=>{
 
-//Ruta GET para la página de 'crear conjunto'
-router.get('/create-look', (req, res)=>{
-  res.render('create-look')
-})
+  const topComplementArray = new Array;
+  const shirtComplementArray = new Array;
+  const hoodieComplementArray = new Array;
+  const pantsComplementArray = new Array;
+  const socksComplementArray = new Array;
+  const shoesComplementArray = new Array;
 
-//Ruta GET para ver todos mis looks
-router.get('/my-looks', (req, res)=>{
 
-  Look.find()
-  .then((info)=>{
-    res.render('my-looks', {looks: info})
+  TopComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      topComplementArray.push(element)
+      console.log(topComplementArray)
+
+    })
   })
   .catch((e)=>{
-    res.send(e)
+    console.log(e)
   })
-})
 
-//Ruta GET para ver un look específico
-router.get('/my-looks/:id', (req, res)=>{
-  Look.findById(req.params.id)
-  .then((info)=>{
-    let lookArray = []
-    lookArray.push(info)
-    res.render('one-look', {look: lookArray})
+  ShirtComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      shirtComplementArray.push(element)
+    })
   })
   .catch((e)=>{
-    res.send(e)
+    console.log(e)
   })
-})
 
-//Ruta DELETE para borrar un look
-router.post('/my-looks/:id', (req, res)=>{
-  Look.findByIdAndDelete(req.params.id)
-  .then((info)=>{
-    res.redirect('/my-looks')
+  HoodieComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      hoodieComplementArray.push(element)
+    })  
   })
   .catch((e)=>{
-    res.send(e)
+    console.log(e)
   })
-})
 
-//Ruta POST para crear un nuevo look
-router.post('/create-look', (req, res)=>{
-  const newLook = new Look({
-    look_name: req.body.topComplementInt,
-    hat_complement: req.body.topComplementInt,
-    shirt_complement: req.body.shirtComplementInt,
-    hoodie_complement: req.body.hoodieComplementInt,
-    pant_complement: req.body.pantsComplementInt,
-    socks_complement: req.body.socksComplementInt,
-    shoes_complement: req.body.shoesComplementInt
-  })
- 
-  newLook.save()
-  .then((info)=>{
-    res.status(201).redirect('/my-looks')
+  PantsComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      pantsComplementArray.push(element)
+    })  
   })
   .catch((e)=>{
-    res.status(400).send(e)
-    console.log(chalk.red(e))
+    console.log(e)
   })
-})
 
+  SocksComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      socksComplementArray.push(element)
+    })  
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
 
+  ShoesComplement.find()
+  .then((answer)=>{
+    answer.forEach((element)=>{
+      shoesComplementArray.push(element)
+    })  
+  })
+  .catch((e)=>{
+    console.log(e)
+  })
+  res.render('creationCenter-my-looks', {
+    topComplement: topComplementArray,
+    shirtComplement: shirtComplementArray,
+    hoodieComplement: hoodieComplementArray,
+    pantsComplement: pantsComplementArray,
+    socksComplement: socksComplementArray,
+    shoesComplement: shoesComplementArray
+  })
+});
 
 
 module.exports = router

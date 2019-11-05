@@ -26,7 +26,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Creation Center</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">New Look</a>
+          <a class="dropdown-item" href="/creation-center/new-look">New Look</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/creation-center/new-top-complement">New Top Complement</a>
           <a class="dropdown-item" href="/creation-center/new-shirt-complement">New Shirt</a>
@@ -39,7 +39,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Wardrobe</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/my-looks">Looks</a>
+          <a class="dropdown-item" href="/#">Looks</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/top-complements">Top Complements</a>
           <a class="dropdown-item" href="/shirt-complements">Shirts</a>
@@ -62,7 +62,43 @@
   
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="/javascripts/siema.min.js"></script>
   <script src="/javascripts/script.js"></script>
+  <script>
+
+    const siemas = document.querySelectorAll('.siema');
+
+    Siema.prototype.addArrows = function() {
+        
+      this.prevArrow = document.createElement('button');
+      this.nextArrow = document.createElement('button');
+      this.prevArrow.textContent = 'previous slide';
+      this.nextArrow.textContent = 'next slide';
+      this.selector.appendChild(this.prevArrow);
+      this.selector.appendChild(this.nextArrow);
+      
+      this.prevArrow.addEventListener('click', () => this.prev());
+      this.nextArrow.addEventListener('click', () => this.next());
+    }
+
+    for(const siema of siemas) {
+      const instance = new Siema({
+        selector: siema,
+        perPage: {
+          0: 1,
+          768: 2,
+          1024: 3
+        },
+        duration: 300,
+        draggable: true,
+        loop: true
+      });
+      instance.addArrows();
+    }
+  </script>
 
 </body>
 </html>
+
+
+
