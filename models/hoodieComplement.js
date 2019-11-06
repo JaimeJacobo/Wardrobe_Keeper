@@ -1,8 +1,9 @@
 
 
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 
-const hoodieComplementSchema = {
+const hoodieComplementSchema = new Schema({
   hoodie_complement_name: {
     type: String,
     required: true,
@@ -12,7 +13,6 @@ const hoodieComplementSchema = {
     type: String,
     required: true,
   }
-}
+}, {timestamp: true})
 
-const hoodieComplement = mongoose.model('Hoodie Complement', hoodieComplementSchema)
-module.exports = hoodieComplement
+module.exports = mongoose.model('Hoodie Complement', hoodieComplementSchema)

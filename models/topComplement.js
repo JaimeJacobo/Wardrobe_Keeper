@@ -1,8 +1,9 @@
 
 
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
 
-const topComplementSchema = {
+const topComplementSchema = new Schema({
   top_complement_name: {
     type: String,
     required: true,
@@ -12,7 +13,6 @@ const topComplementSchema = {
     type: String,
     required: true,
   }
-}
+}, {timestamp: true})
 
-const topComplement = mongoose.model('Top Complement', topComplementSchema)
-module.exports = topComplement
+module.exports = mongoose.model('Top Complement', topComplementSchema)

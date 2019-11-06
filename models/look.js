@@ -1,45 +1,17 @@
 
 
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const lookSchema = {
-  look_name: {
-    type: String,
-    trim: true,
-    required: false,
-    default: "My look :)"
-  },
-  hat_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-  shirt_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-  hoodie_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-  pant_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-  socks_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-  shoes_complement: {
-    type: String,
-    required: false,
-    default: "Some image"
-  },
-}
 
-const Look = mongoose.model('Look', lookSchema)
-module.exports = Look
+const lookSchema = new Schema({
+  look_name: String,
+  top_complement: [{type: Schema.Types.ObjectId, ref: "Top Complement"}],
+  hoodie_complement: [{type: Schema.Types.ObjectId, ref: "Hoodie Complement"}],
+  shirt_complement: [{type: Schema.Types.ObjectId, ref: "Shirt Complement"}],
+  pants_complement: [{type: Schema.Types.ObjectId, ref: "Pants Complement"}],
+  socks_complement: [{type: Schema.Types.ObjectId, ref: "Socks Complement"}],
+  shoes_complement: [{type: Schema.Types.ObjectId, ref: "Shoes Complement"}],
+}, {timestamps: true})
+
+module.exports = mongoose.model('Look', lookSchema)
