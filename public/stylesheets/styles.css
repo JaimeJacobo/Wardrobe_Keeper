@@ -3,6 +3,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.selected {
+  opacity: 0.5;
+}
+
 .imageUploadedSuccess {
   background-color: #99ff66 !important;
   color: #595959 !important;

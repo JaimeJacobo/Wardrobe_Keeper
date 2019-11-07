@@ -1,32 +1,75 @@
 
+<input id="lookNameInt" type="text">
 
-<div class="siema">
+<div class="siema" id="topComplementChecker">
   {{#each topComplement}}
-    <img src="{{image}}" alt="{{top_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{top_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
-<div class="siema">
+<div class="siema" id="hoodieComplementChecker">
   {{#each hoodieComplement}}
-    <img src="{{image}}" alt="{{hoodie_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{hoodie_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
-<div class="siema">
+<div class="siema" id="shirtComplementChecker">
   {{#each shirtComplement}}
-    <img src="{{image}}" alt="{{shirt_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{shirt_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
-<div class="siema">
+<div class="siema" id="pantsComplementChecker">
   {{#each pantsComplement}}
-    <img src="{{image}}" alt="{{pants_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{pants_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
-<div class="siema">
+<div class="siema" id="socksComplementChecker">
   {{#each socksComplement}}
-    <img src="{{image}}" alt="{{socks_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{socks_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
-<div class="siema">
+<div class="siema" id="shoesComplementChecker">
   {{#each shoesComplement}}
-    <img src="{{image}}" alt="{{shoes_complement_name}}">
+    <img src="{{image}}" class="not-selected" alt="{{shoes_complement_name}}" id="{{_id}}">
   {{/each}}
 </div>
+
+<button id="submitNewLook">Submit</button>
+
+
+<div>
+
+</div>
+<h1>Post your new Look</h1>
+
+
+<form action="/create-temporal-look" method="post" class="hide">
+
+  <label for="lookName">Look Name:</label>
+  <input id="lookName" type="text" name="look_name" />
+  <br />
+
+  <label for="topComplement">Top complement:</label>
+  <input id="topComplement" type="text" name="top_complement" />
+  <br />
+
+  <label for="shirtComplement">Shirt complement:</label>
+  <input id="shirtComplement" type="text" name="shirt_complement" />
+  <br />
+
+  <label for="hoodieComplement">Hoodie complement:</label>
+  <input id="hoodieComplement" type="text" name="hoodie_complement" />
+  <br />
+
+  <label for="pantsComplement">Pants complement:</label>
+  <input id="pantsComplement" type="text" name="pants_complement" />
+  <br />
+
+  <label for="socksComplement">Socks complement:</label>
+  <input id="socksComplement" type="text" name="socks_complement" />
+  <br />
+
+  <label for="shoesComplement">Shoes complement:</label>
+  <input id="shoesComplement" type="text" name="shoes_complement" />
+  <br />
+
+  <button id="submitLookButton">Save Your Look</button>
+</form>

@@ -5,6 +5,10 @@ const router  = express.Router()
 
 const Look = require('../../models/look')
 
+router.get('/create-temporal-look', (req, res)=>{
+  res.render('create-look')
+})
+
 
 router.post('/create-temporal-look', (req, res)=>{
   Look.create({
@@ -24,7 +28,7 @@ router.post('/create-temporal-look', (req, res)=>{
   })
 })
 
-router.get('/temporal-look-prueba/:id/:something', (req, res)=>{
+router.get('/temporal-look-prueba/:id', (req, res)=>{
 
     Look.findById(req.params.id).populate('top_complement hoodie_complement shirt_complement pants_complement socks_complement shoes_complement')
     .then((answer)=>{
@@ -34,6 +38,10 @@ router.get('/temporal-look-prueba/:id/:something', (req, res)=>{
       console.log(e)
     })
 })
+
+// router.post('/get-ids', (req, res)=>{
+
+// })
 
 
 module.exports = router

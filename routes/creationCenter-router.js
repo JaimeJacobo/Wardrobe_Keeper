@@ -56,8 +56,6 @@ router.get('/creation-center/new-look', (req, res)=>{
   .then((answer)=>{
     answer.forEach((element)=>{
       topComplementArray.push(element)
-      console.log(topComplementArray)
-
     })
   })
   .catch((e)=>{
